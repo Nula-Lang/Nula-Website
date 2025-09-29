@@ -1,1 +1,216 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join to Velvet Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000013;
+            color: #ffffff;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        header {
+            background: linear-gradient(to right, #00091e, #0d1a33);
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo img {
+            height: 70px;
+            transition: transform 0.3s ease;
+        }
+        .logo img:hover {
+            transform: rotate(5deg) scale(1.1);
+        }
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        nav ul li a:hover {
+            background-color: #004dff;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+        .content {
+            background: linear-gradient(135deg, #0d1a33, #1a1a4d);
+            padding: 50px;
+            border-radius: 20px;
+            animation: fadeIn 1.2s ease-in-out;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .content h1 {
+            color: #004dff;
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        .content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .join-form {
+            max-width: 600px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .join-form input {
+            width: 100%;
+            padding: 15px;
+            background-color: #1a1a4d;
+            border: none;
+            color: #ffffff;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .join-form input:focus {
+            outline: none;
+            background-color: #00091e;
+            box-shadow: 0 0 10px rgba(0, 77, 255, 0.5);
+        }
+        .join-form input::placeholder {
+            color: #ffffff;
+            opacity: 0.7;
+        }
+        .join-form button {
+            background-color: #004dff;
+            color: #ffffff;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .join-form button:hover {
+            background-color: #00091e;
+            transform: translateY(-3px);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        footer {
+            background: linear-gradient(to right, #00091e, #1a1a4d);
+            color: #ffffff;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+        }
+        footer a.github {
+            display: inline-flex;
+            align-items: center;
+            background-color: #004dff;
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        footer a.github:hover {
+            background-color: #00091e;
+            transform: translateY(-3px);
+        }
+        footer a.github::before {
+            content: '\f09b';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            margin-right: 8px;
+        }
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 20px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .content h1 {
+                font-size: 2em;
+            }
+            .content {
+                padding: 30px;
+            }
+            .join-form {
+                margin: 20px auto;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="nula.png" alt="Velvet Programming Language Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="install.html">Install</a></li>
+                <li><a href="about-velvet.html">About Velvet</a></li>
+                <li><a href="join-to-velvet-library.html">Join to Velvet Library</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="content">
+            <h1>Join Velvet Library</h1>
+            <p>Join our vibrant community to access exclusive resources, tutorials, and updates for the Velvet Programming Language.</p>
+            <div class="join-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="password" placeholder="Password" required>
+                <button onclick="alert('Form submitted! Welcome to Velvet Library!')">Join Now</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Velvet Programming Language. All rights reserved.</p>
+        <a href="https://github.com/Nula-Lang" class="github">GitHub</a>
+    </footer>
+</body>
+</html>
