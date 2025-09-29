@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Install - Velvet Programming Language</title>
+    <title>Install - Nula Programming Language</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="nula.png">
     <style>
@@ -75,9 +75,16 @@
             margin-bottom: 25px;
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
+        .content h2 {
+            color: #ffffff;
+            font-size: 1.8em;
+            font-weight: 600;
+            margin: 30px 0 15px;
+        }
         .content p {
             font-size: 1.2em;
             margin-bottom: 20px;
+            font-weight: 300;
         }
         .content ol {
             margin-left: 30px;
@@ -95,6 +102,36 @@
         }
         .content a:hover {
             color: #ffffff;
+        }
+        .code-block {
+            background-color: #00091e;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95em;
+        }
+        .code-block code {
+            flex-grow: 1;
+            color: #ffffff;
+        }
+        .code-block button {
+            background-color: #004dff;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .code-block button:hover {
+            background-color: #1a1a4d;
+            transform: translateY(-2px);
         }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(30px); }
@@ -148,8 +185,19 @@
             .content h1 {
                 font-size: 2em;
             }
+            .content h2 {
+                font-size: 1.5em;
+            }
             .content {
                 padding: 30px;
+            }
+            .code-block {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .code-block button {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
@@ -158,34 +206,64 @@
 <body>
     <header>
         <div class="logo">
-            <img src="nula.png" alt="Velvet Programming Language Logo">
+            <img src="nula.png" alt="Nula Programming Language Logo">
         </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="install.html">Install</a></li>
-                <li><a href="about-velvet.html">About Velvet</a></li>
-                <li><a href="join-to-velvet-library.html">Join to Velvet Library</a></li>
+                <li><a href="about-nula.html">About Nula</a></li>
+                <li><a href="join-to-nula-library.html">Join to Nula Library</a></li>
             </ul>
         </nav>
     </header>
     <div class="container">
         <div class="content">
-            <h1>Install Velvet Programming Language</h1>
-            <p>Get started with Velvet by following these simple installation steps:</p>
+            <h1>Install Nula Programming Language</h1>
+            <p>Get started with Nula by following these simple installation steps:</p>
             <ol>
                 <li>Visit our official repository on <a href="https://github.com/Nula-Lang">GitHub</a> to download the latest release.</li>
                 <li>Choose the appropriate installer for your operating system (Windows, macOS, or Linux).</li>
                 <li>Run the installer and follow the on-screen instructions to complete the setup.</li>
                 <li>Ensure your system meets the minimum requirements: 64-bit OS, 4GB RAM, 500MB free disk space.</li>
-                <li>Open your terminal or IDE and start coding with Velvet!</li>
+                <li>Open your terminal or IDE and start coding with Nula!</li>
             </ol>
             <p>For detailed installation guides and troubleshooting, check our <a href="https://github.com/Nula-Lang">GitHub documentation</a>.</p>
+            <h2>Building from Source</h2>
+            <p>Use the following commands to build Nula from source:</p>
+            <div class="code-block">
+                <code>For Windows: curl -L -o /tmp/build-from-source.sh https://raw.githubusercontent.com/Nula-Lang/Nula/main/install/install.ps1</code>
+                <button onclick="copyToClipboard('For Windows: curl -L -o /tmp/build-from-source.sh https://raw.githubusercontent.com/Nula-Lang/Nula/main/install/install.ps1')">Copy</button>
+            </div>
+            <div class="code-block">
+                <code>For Linux/Unix/macOS: curl -L -o /tmp/build-from-source.sh https://raw.githubusercontent.com/Nula-Lang/Nula/main/install/install.sh</code>
+                <button onclick="copyToClipboard('For Linux/Unix/macOS: curl -L -o /tmp/build-from-source.sh https://raw.githubusercontent.com/Nula-Lang/Nula/main/install/install.sh')">Copy</button>
+            </div>
+            <h2>Normal Installation</h2>
+            <p>Use the following commands for a standard installation:</p>
+            <div class="code-block">
+                <code>For Windows: curl -L -o /tmp/build-from-source.sh https://raw.githubusercontent.com/Nula-Lang/Nula/main/install/build-from-source.ps1</code>
+                <button onclick="copyToClipboard('For Windows: curl -L -o /tmp/build-from-source.sh https://raw.githubusercontent.com/Nula-Lang/Nula/main/install/build-from-source.ps1')">Copy</button>
+            </div>
+            <div class="code-block">
+                <code>For Linux/Unix/macOS: curl -L -o /tmp/build-from-source.sh https://raw.githubusercontent.com/Nula-Lang/Nula/main/install/build-from-source.sh</code>
+                <button onclick="copyToClipboard('For Linux/Unix/macOS: curl -L -o /tmp/build-from-source.sh https://raw.githubusercontent.com/Nula-Lang/Nula/main/install/build-from-source.sh')">Copy</button>
+            </div>
         </div>
     </div>
     <footer>
-        <p>&copy; 2025 Velvet Programming Language. All rights reserved.</p>
+        <p>&copy; 2025 Nula Programming Language. All rights reserved.</p>
         <a href="https://github.com/Nula-Lang" class="github">GitHub</a>
     </footer>
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Command copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert('Failed to copy command. Please copy it manually.');
+            });
+        }
+    </script>
 </body>
 </html>
