@@ -4,8 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Nula Programming Language</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="nula.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai-sublime.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <style>
         * {
             margin: 0;
@@ -16,69 +19,87 @@
             font-family: 'Inter', sans-serif;
             background-color: #000013;
             color: #ffffff;
-            line-height: 1.7;
+            line-height: 1.8;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
         header {
             background: linear-gradient(to right, #00091e, #0d1a33);
-            padding: 20px 40px;
+            padding: 1.5rem 3rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
             position: sticky;
             top: 0;
             z-index: 1000;
+            backdrop-filter: blur(5px);
         }
         .logo img {
-            height: 70px;
-            transition: transform 0.3s ease;
+            height: 80px;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .logo img:hover {
-            transform: rotate(5deg) scale(1.1);
+            transform: rotate(8deg) scale(1.15);
         }
         nav ul {
             display: flex;
-            gap: 35px;
+            gap: 2.5rem;
             list-style: none;
         }
         nav ul li a {
             color: #ffffff;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            padding: 8px 16px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+            font-size: 1.15rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #004dff;
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
         }
         nav ul li a:hover {
-            background-color: #004dff;
+            background-color: rgba(0, 77, 255, 0.15);
             color: #ffffff;
         }
         .container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 50px 20px;
+            padding: 4rem 1.5rem;
         }
         .hero {
             background: linear-gradient(135deg, #0d1a33, #1a1a4d);
-            padding: 100px 40px;
+            padding: 8rem 3rem;
             text-align: center;
-            border-radius: 20px;
+            border-radius: 24px;
             position: relative;
             overflow: hidden;
-            animation: fadeIn 1.2s ease-in-out;
+            animation: fadeIn 1.5s ease-out;
+            margin-bottom: 4rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0, 77, 255, 0.2), transparent);
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 77, 255, 0.25), transparent);
+            animation: pulse 12s infinite ease-in-out;
             z-index: 0;
-            animation: pulse 10s infinite;
         }
         .hero-content {
             position: relative;
@@ -86,95 +107,154 @@
         }
         .hero h1 {
             color: #004dff;
-            font-size: 3.5em;
+            font-size: 4.5rem;
             font-weight: 700;
-            margin-bottom: 25px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 1.5rem;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+            letter-spacing: -0.02em;
         }
         .hero p {
-            font-size: 1.4em;
-            max-width: 900px;
-            margin: 0 auto;
+            font-size: 1.6rem;
+            max-width: 1000px;
+            margin: 0 auto 2rem;
             color: #ffffff;
             font-weight: 300;
+            opacity: 0.9;
         }
         .cta-button {
             display: inline-block;
             background-color: #004dff;
             color: #ffffff;
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 30px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1.2rem;
+            margin-top: 2rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(0, 77, 255, 0.4);
         }
         .cta-button:hover {
             background-color: #1a1a4d;
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 77, 255, 0.6);
+        }
+        .examples {
+            background: linear-gradient(135deg, #0d1a33, #1a1a4d);
+            padding: 4rem 3rem;
+            border-radius: 24px;
+            margin-bottom: 4rem;
+            animation: fadeIn 1.5s ease-out;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+        .examples h2 {
+            color: #004dff;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            text-align: center;
+            text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+        }
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .example-section {
+            background-color: #0d1a33;
+            padding: 2rem;
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .example-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+        .example-section h3 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .example-section pre {
+            background-color: #00091e;
+            padding: 1.5rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.4);
+        }
+        .example-section code {
+            font-size: 1.05rem;
         }
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.3); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 0.3; }
         }
         footer {
             background: linear-gradient(to right, #00091e, #1a1a4d);
             color: #ffffff;
-            padding: 20px;
+            padding: 2rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 30px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+            gap: 2rem;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.4);
         }
         footer a.github {
             display: inline-flex;
             align-items: center;
             background-color: #004dff;
             color: #ffffff;
-            padding: 12px 25px;
-            border-radius: 8px;
+            padding: 0.9rem 2rem;
+            border-radius: 10px;
             text-decoration: none;
             font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         footer a.github:hover {
             background-color: #00091e;
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 4px 15px rgba(0, 77, 255, 0.4);
         }
         footer a.github::before {
             content: '\f09b';
             font-family: 'Font Awesome 5 Free';
             font-weight: 900;
-            margin-right: 8px;
+            margin-right: 0.6rem;
         }
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
-                gap: 20px;
-                padding: 20px;
+                gap: 1.5rem;
+                padding: 1.5rem;
             }
             nav ul {
                 flex-direction: column;
-                gap: 15px;
+                gap: 1rem;
                 text-align: center;
             }
             .hero h1 {
-                font-size: 2.2em;
+                font-size: 3rem;
             }
             .hero p {
-                font-size: 1.1em;
+                font-size: 1.3rem;
             }
             .container {
-                padding: 20px;
+                padding: 2rem 1rem;
+            }
+            .examples pre {
+                font-size: 0.9rem;
+            }
+            .example-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -198,10 +278,83 @@
         <div class="hero">
             <div class="hero-content">
                 <h1>Welcome to Nula Programming Language</h1>
-                <p>Nula is a cutting-edge programming language designed for simplicity, performance, and creativity. Build the future with a language that empowers developers to create with ease.</p>
+                <p>Nula is a modern, very easy-to-use programming language. It features simple and readable syntax, performance close to C thanks to Zig, and the ability to run code in interpreted mode thanks to Python. The language also allows for easy translation of code from other languages (e.g., Python) into Nula.</p>
+                <pre><code class="language-python"># Simple Hello World in Nula
+write("Hello, Nula!")</code></pre>
                 <a href="join-to-nula-library.html" class="cta-button">Get Started</a>
             </div>
         </div>
+        <section class="examples">
+            <h2>Why Choose Nula?</h2>
+            <div class="example-grid">
+                <div class="example-section">
+                    <h3>✨ Simple Hello World</h3>
+                    <pre><code class="language-python">@ File hello.nula - the simplest program
+write("Hello, Nula!")</code></pre>
+                </div>
+                <div class="example-section">
+                    <h3>🚀 Variables & Types</h3>
+                    <pre><code class="language-python">@ File variables types.nula - variables and types
+@ Example of simple variables
+let x = 10 @ integer
+let y = 3.14 @ floating point number
+let name = "nula" @ string
+let flag = true @ logical value (boolean)
+@ Operation example
+let sum = x + y
+let greeting = "Hi, " + name
+write("x = " + x)
+write("y = " + y)
+write("sum = " + sum)
+write(greeting)</code></pre>
+                </div>
+                <div class="example-section">
+                    <h3>🛡️ Functions</h3>
+                    <pre><code class="language-python">@ File functions.nula - functions
+@ Function declaration
+func add(a, b) {
+    return a + b
+}
+func greet(name) {
+    write("Hello, " + name + "!")
+}
+@ Function calls
+let result = add(5, 7)
+write("5 + 7 = " + result)
+greet("Michał")</code></pre>
+                </div>
+                <div class="example-section">
+                    <h3>✨ Conditions</h3>
+                    <pre><code class="language-python">@ File conditions.nula - conditional statements
+let age = 20
+if age >= 18 {
+    write("You are an adult.")
+} else {
+    write("You're not of age yet.")
+}
+let number = 5
+if number % 2 == 0 {
+    write("The number " + number + " is even.")
+} else {
+    write("The number " + number + " is odd.")
+}</code></pre>
+                </div>
+                <div class="example-section">
+                    <h3>🚀 Loops</h3>
+                    <pre><code class="language-python">@ File loops.nula - loops
+@ While loop
+let i = 0
+while i < 5 {
+    write("Iteration: " + i)
+    i = i + 1
+}
+@ For loop
+for j in [1, 2, 3, 4, 5] {
+    write("List item: " + j)
+}</code></pre>
+                </div>
+            </div>
+        </section>
     </div>
     <footer>
         <p>&copy; 2025 Nula Programming Language. All rights reserved.</p>
